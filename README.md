@@ -48,15 +48,6 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 
 ---
 
-### 📊 Stats
-
-<p>
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=aaditagrawal&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=aaditagrawal&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" />
-</p>
-
----
-
 ### 📫 Let's Connect
 
 [![Website](https://img.shields.io/badge/aadit.cc-000000?style=flat-square&logo=safari&logoColor=white)](https://aadit.cc)

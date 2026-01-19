@@ -19,6 +19,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 ### 🛠 Tech Stack
 
 **Languages**
+
 [![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -40,6 +41,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![LaTeX](https://img.shields.io/badge/LaTeX-008080?style=flat-square&logo=latex&logoColor=white)](https://www.latex-project.org)
 
 **Web & Frameworks**
+
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
@@ -58,6 +60,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![Astro](https://img.shields.io/badge/Astro-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
 
 **Infrastructure & DevOps**
+
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)](https://kubernetes.io)
 [![Proxmox](https://img.shields.io/badge/Proxmox-E57000?style=flat-square&logo=proxmox&logoColor=white)](https://www.proxmox.com)
@@ -83,6 +86,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![Loki](https://img.shields.io/badge/Loki-F46800?style=flat-square&logo=grafana&logoColor=white)](https://grafana.com/oss/loki/)
 
 **Cloud & Edge**
+
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://www.cloudflare.com)
 [![Cloudflare Workers](https://img.shields.io/badge/Workers-F38020?style=flat-square&logo=cloudflareworkers&logoColor=white)](https://workers.cloudflare.com)
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com)
@@ -97,6 +101,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://www.netlify.com)
 
 **Databases**
+
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org)
 [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://www.mysql.com)
 [![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white)](https://mariadb.org)
@@ -110,6 +115,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![PlanetScale](https://img.shields.io/badge/PlanetScale-000000?style=flat-square&logo=planetscale&logoColor=white)](https://planetscale.com)
 
 **Vector Databases & RAG**
+
 [![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6446?style=flat-square)](https://www.trychroma.com)
 [![pgvector](https://img.shields.io/badge/pgvector-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://github.com/pgvector/pgvector)
 [![Weaviate](https://img.shields.io/badge/Weaviate-00D1A9?style=flat-square)](https://weaviate.io)
@@ -118,6 +124,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![Haystack](https://img.shields.io/badge/Haystack-00A4BD?style=flat-square)](https://haystack.deepset.ai)
 
 **LLM Inference & Serving**
+
 [![vLLM](https://img.shields.io/badge/vLLM-FF6F00?style=flat-square)](https://github.com/vllm-project/vllm)
 [![SGLang](https://img.shields.io/badge/SGLang-6366F1?style=flat-square)](https://github.com/sgl-project/sglang)
 [![llama.cpp](https://img.shields.io/badge/llama.cpp-000000?style=flat-square)](https://github.com/ggerganov/llama.cpp)
@@ -133,6 +140,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![BitsAndBytes](https://img.shields.io/badge/bitsandbytes-FF6B6B?style=flat-square)](https://github.com/TimDettmers/bitsandbytes)
 
 **AI/ML Frameworks**
+
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)](https://pytorch.org)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)](https://www.tensorflow.org)
 [![JAX](https://img.shields.io/badge/JAX-A435F0?style=flat-square)](https://github.com/google/jax)
@@ -149,6 +157,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![Weights & Biases](https://img.shields.io/badge/W%26B-FFBE00?style=flat-square&logo=weightsandbiases&logoColor=black)](https://wandb.ai)
 
 **Computer Vision**
+
 [![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)](https://opencv.org)
 [![YOLO](https://img.shields.io/badge/YOLO-00FFFF?style=flat-square)](https://pjreddie.com/darknet/yolo/)
 [![YOLOv7](https://img.shields.io/badge/YOLOv7-111928?style=flat-square)](https://github.com/WongKinYiu/yolov7)
@@ -161,6 +170,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![torchvision](https://img.shields.io/badge/torchvision-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)](https://pytorch.org/vision)
 
 **HPC & GPU Computing**
+
 [![CUDA](https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
 [![cuDNN](https://img.shields.io/badge/cuDNN-76B900?style=flat-square&logo=nvidia&logoColor=white)](https://developer.nvidia.com/cudnn)
 [![TensorRT](https://img.shields.io/badge/TensorRT-76B900?style=flat-square&logo=nvidia&logoColor=white)](https://developer.nvidia.com/tensorrt)
@@ -179,6 +189,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![CuPy](https://img.shields.io/badge/CuPy-00A3E0?style=flat-square)](https://cupy.dev)
 
 **Architecture & Low-Level**
+
 [![ARM64](https://img.shields.io/badge/ARM64-0091BD?style=flat-square&logo=arm&logoColor=white)](https://www.arm.com)
 [![AMD64](https://img.shields.io/badge/AMD64-ED1C24?style=flat-square&logo=amd&logoColor=white)](https://www.amd.com)
 [![x86-64](https://img.shields.io/badge/x86--64-0071C5?style=flat-square&logo=intel&logoColor=white)](https://www.intel.com)
@@ -192,6 +203,7 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![perf](https://img.shields.io/badge/perf-FCC624?style=flat-square&logo=linux&logoColor=black)](https://perf.wiki.kernel.org)
 
 **Security & Networking**
+
 [![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=flat-square&logo=wireshark&logoColor=white)](https://www.wireshark.org)
 [![Burp Suite](https://img.shields.io/badge/Burp%20Suite-FF6633?style=flat-square&logo=burpsuite&logoColor=white)](https://portswigger.net/burp)
 [![Nmap](https://img.shields.io/badge/Nmap-4682B4?style=flat-square)](https://nmap.org)
@@ -206,11 +218,13 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 [![OpenSSL](https://img.shields.io/badge/OpenSSL-721412?style=flat-square&logo=openssl&logoColor=white)](https://www.openssl.org)
 
 **Message Queues & Streaming**
+
 [![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)](https://kafka.apache.org)
 [![NATS](https://img.shields.io/badge/NATS-27AAE1?style=flat-square&logo=nats.io&logoColor=white)](https://nats.io)
 [![MQTT](https://img.shields.io/badge/MQTT-660066?style=flat-square&logo=mqtt&logoColor=white)](https://mqtt.org)
 
 **Tools & Editors**
+
 [![Neovim](https://img.shields.io/badge/Neovim-57A143?style=flat-square&logo=neovim&logoColor=white)](https://neovim.io)
 [![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com)
 [![JetBrains](https://img.shields.io/badge/JetBrains-000000?style=flat-square&logo=jetbrains&logoColor=white)](https://www.jetbrains.com)

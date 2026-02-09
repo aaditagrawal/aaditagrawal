@@ -14,13 +14,14 @@ Currently an undergrad CS and Comms student, **Head Student Researcher** at [CAS
 | [**Contact Cards**](https://contacts.coolstuff.work) | Personal contact card generator with vCard QR codes |
 | [**MIT Manipal Campus Directory**](https://cd.coolstuff.work) | Crowdsourced campus contact resources and data |
 | [**Sindhi Mess Menu**](https://sindhu.coolstuff.work) | Mess menu website with cyclic rotation and extras |
-| [**The TIK API**](https://tikm.coolstuff.work) | Food data API with admin dashboard and XLSX processing |
+| [**The TIK API**](https://tikm.coolstuff.work/docs/reference) | Food data API with admin dashboard and XLSX processing |
 | [**MIT Courses Search**](https://courses.coolstuff.work) | Course discovery with interactive network graph (500+ nodes) |
 | [**Electives Allocation Data**](https://electives.coolstuff.work) | Sixth semester elective allocation data for AY 2025-2026 |
 | [**The Mass Contact Maker**](https://vcf.aadit.cc/) | Bulk contact creation from Excel sheets |
 | [**CCE-B Timetable**](https://tt.coolstuff.work) | Sixth semester timetable for easy accessibility |
+| [**transcript-cli**](https://git.aadit.cc/aadit/transcript-cli) | Accelerated video transcript extraction across multiple runtimes |
 | **Homelab** | 70+ self-hosted services · 98% uptime over 4 years |
-| [**transcript-cli**](https://git.aadit.cc/aadit) | Accelerated video transcript extraction across multiple runtimes |
+
 
 ---
 

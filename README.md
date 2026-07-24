@@ -1,6 +1,6 @@
 # Hey, I'm Aadit
 
-Currently an undergrad CS and Comms student, **Head Student Researcher** at [CASIR, MAHE](https://ecitis.org) architecting HPC clusters and production AI systems, and **Founding President** of [PRISM](https://theprism.fyi) - an interdisciplinary research collective spanning AI/ML, HPC, DevOps, Biotech, and InfoSec.
+Currently an undergrad CS and Comms student, **Codex Creative** at OpenAI, formerly **Head Student Researcher** at [CASIR, MAHE](https://ecitis.org) architecting HPC clusters and production AI systems, and **Founding President** of [PRISM](https://theprism.fyi) - an interdisciplinary research collective spanning AI/ML, HPC, DevOps, Biotech, and InfoSec.
 
 ---
 

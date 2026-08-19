@@ -1,0 +1,9 @@
+{
+  "_comment": "Repos that live outside GitHub (local-only, or on git.aadit.cc) but should still count toward the language mix. Byte counts are linguist-equivalent: source bytes per language, excluding lockfiles, generated output and vendored code. Add entries here and the weekly workflow picks them up.",
+  "repos": {
+    "acadcal": {
+      "note": "local-only, no remote",
+      "languages": { "TypeScript": 14997, "CSS": 5477, "JavaScript": 428 }
+    }
+  }
+}

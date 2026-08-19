@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-08-19T14:08:17.312Z",
+  "repoCount": 63,
+  "totalBytes": 12486528,
+  "languages": [
+    {
+      "name": "TypeScript",
+      "bytes": 7407071,
+      "share": 59.320501263441685
+    },
+    {
+      "name": "Python",
+      "bytes": 2217480,
+      "share": 17.758979918196633
+    },
+    {
+      "name": "Swift",
+      "bytes": 674291,
+      "share": 5.400148063577001
+    },
+    {
+      "name": "Kotlin",
+      "bytes": 657567,
+      "share": 5.266211712335086
+    },
+    {
+      "name": "HTML",
+      "bytes": 383488,
+      "share": 3.0712140316347347
+    },
+    {
+      "name": "CSS",
+      "bytes": 336556,
+      "share": 2.6953529435884818
+    },
+    {
+      "name": "Astro",
+      "bytes": 285498,
+      "share": 2.286448242457791
+    },
+    {
+      "name": "JavaScript",
+      "bytes": 153894,
+      "share": 1.2324803179875143
+    },
+    {
+      "name": "MDX",
+      "bytes": 147080,
+      "share": 1.1779095037467582
+    },
+    {
+      "name": "Shell",
+      "bytes": 84783,
+      "share": 0.6789957945074884
+    },
+    {
+      "name": "Elixir",
+      "bytes": 67758,
+      "share": 0.5426488452194237
+    },
+    {
+      "name": "Java",
+      "bytes": 43109,
+      "share": 0.34524409027073016
+    },
+    {
+      "name": "Objective-C++",
+      "bytes": 6054,
+      "share": 0.048484254390011375
+    },
+    {
+      "name": "MATLAB",
+      "bytes": 4874,
+      "share": 0.03903406935859192
+    },
+    {
+      "name": "Objective-C",
+      "bytes": 4766,
+      "share": 0.03816913716927556
+    },
+    {
+      "name": "NSIS",
+      "bytes": 3784,
+      "share": 0.03030466115160275
+    },
+    {
+      "name": "Makefile",
+      "bytes": 3256,
+      "share": 0.02607610378161167
+    },
+    {
+      "name": "C",
+      "bytes": 3087,
+      "share": 0.024722645077959224
+    },
+    {
+      "name": "Dockerfile",
+      "bytes": 2132,
+      "share": 0.017074402107615502
+    }
+  ]
+}

@@ -4,45 +4,6 @@ Currently an undergrad CS and Comms student, **Codex Creative** at OpenAI, forme
 
 ---
 
-### Language Mix
-
-<!-- LANG-CHART:START -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-dark.svg?v=2026-08-19">
-  <img alt="Language mix: TypeScript 59.32%, Python 17.76%, Swift 5.40%, Kotlin 5.27%, HTML 3.07%, CSS 2.70%, Astro 2.29%, JavaScript 1.23%, Other 2.97%" src="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-light.svg?v=2026-08-19">
-</picture>
-
-<details>
-<summary>All 19 languages, as a table</summary>
-
-| Language | Share | Bytes |
-| --- | ---: | ---: |
-| TypeScript | 59.32% | 7,407,071 |
-| Python | 17.76% | 2,217,480 |
-| Swift | 5.40% | 674,291 |
-| Kotlin | 5.27% | 657,567 |
-| HTML | 3.07% | 383,488 |
-| CSS | 2.70% | 336,556 |
-| Astro | 2.29% | 285,498 |
-| JavaScript | 1.23% | 153,894 |
-| MDX | 1.18% | 147,080 |
-| Shell | 0.68% | 84,783 |
-| Elixir | 0.54% | 67,758 |
-| Java | 0.35% | 43,109 |
-| Objective-C++ | 0.05% | 6,054 |
-| MATLAB | 0.04% | 4,874 |
-| Objective-C | 0.04% | 4,766 |
-| NSIS | 0.03% | 3,784 |
-| Makefile | 0.03% | 3,256 |
-| C | 0.02% | 3,087 |
-| Dockerfile | 0.02% | 2,132 |
-
-Source bytes classified by [GitHub Linguist](https://github.com/github-linguist/linguist) across 63 repositories I own — public and private, forks and archived duplicates excluded. Lockfiles, vendored code and generated output are not counted. Regenerated weekly by [`generate-language-chart.mjs`](scripts/generate-language-chart.mjs).
-</details>
-<!-- LANG-CHART:END -->
-
----
-
 ### Featured Projects
 
 | Project | Description |
@@ -72,3 +33,14 @@ Source bytes classified by [GitHub Linguist](https://github.com/github-linguist/
 ---
 
 BTech CCE @ MIT Manipal '27
+
+---
+
+### Language Mix
+
+<!-- LANG-CHART:START -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-dark.svg?v=2026-08-19">
+  <img alt="Language mix across 63 repositories — TypeScript 59.32%, Python 17.76%, Swift 5.40%, Kotlin 5.27%, HTML 3.07%, CSS 2.70%, Astro 2.29%, JavaScript 1.23%, MDX 1.18%, Shell 0.68%, Elixir 0.54%, Java 0.35%, Objective-C++ 0.05%, MATLAB 0.04%, Objective-C 0.04%, NSIS 0.03%, Makefile 0.03%, C 0.02%, Dockerfile 0.02%" src="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-light.svg?v=2026-08-19">
+</picture>
+<!-- LANG-CHART:END -->

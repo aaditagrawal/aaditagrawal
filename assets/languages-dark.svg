@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="190" viewBox="0 0 880 190" role="img" aria-labelledby="t d">
 <title id="t">Language mix across 63 repositories</title>
-<desc id="d">TypeScript 59.32%, Python 17.76%, Swift 5.40%, Kotlin 5.27%, HTML 3.07%, CSS 2.70%, Astro 2.29%, JavaScript 1.23%, Other 2.97%</desc>
+<desc id="d">TypeScript 59.32%, Python 17.76%, Swift 5.40%, Kotlin 5.27%, HTML 3.07%, CSS 2.70%, Astro 2.29%, JavaScript 1.23%, MDX 1.18%, Shell 0.68%, Elixir 0.54%, Java 0.35%, Objective-C++ 0.05%, MATLAB 0.04%, Objective-C 0.04%, NSIS 0.03%, Makefile 0.03%, C 0.02%, Dockerfile 0.02%</desc>
 <style>text{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif}</style>
 <text x="0" y="16" fill="#ffffff" font-size="15" font-weight="600">Language mix</text>
 <text x="0" y="36" fill="#898781" font-size="11">12.49 MB of source across 63 repositories  ·  public and private, forks and archives excluded  ·  19 Aug 2026</text>

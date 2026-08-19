@@ -7,7 +7,9 @@
 // too, which is what keeps the three telemachus snapshots from counting Swift
 // three times. Repos that live outside GitHub go in data/extra-languages.json.
 //
-//   GITHUB_TOKEN=... node scripts/generate-language-chart.mjs
+// Run by hand whenever the mix is worth refreshing:
+//
+//   GITHUB_TOKEN=$(gh auth token) node scripts/generate-language-chart.mjs
 
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
@@ -140,7 +142,7 @@ function renderSvg(segments, meta, mode) {
   parts.push(
     `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" role="img" aria-labelledby="t d">`,
     `<title id="t">Language mix across ${meta.repoCount} repositories</title>`,
-    `<desc id="d">${xml(segments.map((s) => `${s.name} ${pct(s.share)}`).join(', '))}</desc>`,
+    `<desc id="d">${xml(meta.languages.map((l) => `${l.name} ${pct(l.share)}`).join(', '))}</desc>`,
     `<style>text{font-family:${FONT}}</style>`,
     `<text x="0" y="16" fill="${c.primary}" font-size="15" font-weight="600">Language mix</text>`,
     `<text x="0" y="36" fill="${c.muted}" font-size="11">${xml(meta.subtitle)}</text>`,
@@ -189,26 +191,16 @@ function renderSvg(segments, meta, mode) {
 // so a refreshed chart shows up immediately instead of serving last week's.
 const RAW = 'https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets'
 
-function renderReadmeBlock(languages, segments, meta) {
-  const alt = segments.map((s) => `${s.name} ${pct(s.share)}`).join(', ')
-  const rows = languages
-    .map((l) => `| ${l.name} | ${pct(l.share)} | ${l.bytes.toLocaleString('en-US')} |`)
-    .join('\n')
+function renderReadmeBlock(languages, meta) {
+  // The alt text spells out every language, not just the nine the bar colours in.
+  // With no table on the page it is the only textual form of the data, so the
+  // long tail has to live here or it lives nowhere.
+  const alt = languages.map((l) => `${l.name} ${pct(l.share)}`).join(', ')
   return [
     '<picture>',
     `  <source media="(prefers-color-scheme: dark)" srcset="${RAW}/languages-dark.svg?v=${meta.stamp}">`,
-    `  <img alt="Language mix: ${alt}" src="${RAW}/languages-light.svg?v=${meta.stamp}">`,
+    `  <img alt="Language mix across ${meta.repoCount} repositories — ${alt}" src="${RAW}/languages-light.svg?v=${meta.stamp}">`,
     '</picture>',
-    '',
-    '<details>',
-    `<summary>All ${languages.length} languages, as a table</summary>`,
-    '',
-    '| Language | Share | Bytes |',
-    '| --- | ---: | ---: |',
-    rows,
-    '',
-    `Source bytes classified by [GitHub Linguist](https://github.com/github-linguist/linguist) across ${meta.repoCount} repositories I own — public and private, forks and archived duplicates excluded. Lockfiles, vendored code and generated output are not counted. Regenerated weekly by [\`generate-language-chart.mjs\`](scripts/generate-language-chart.mjs).`,
-    '</details>',
   ].join('\n')
 }
 
@@ -218,7 +210,7 @@ const generatedAt = new Date()
 const subtitle =
   `${mb(totalBytes)} of source across ${repoCount} repositories  ·  public and private, forks and archives excluded  ·  ` +
   generatedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
-const meta = { repoCount, totalBytes, subtitle, stamp: generatedAt.toISOString().slice(0, 10) }
+const meta = { repoCount, totalBytes, subtitle, languages, stamp: generatedAt.toISOString().slice(0, 10) }
 
 await writeFile(resolve(ROOT, 'assets/languages-light.svg'), renderSvg(segments, meta, 'light') + '\n')
 await writeFile(resolve(ROOT, 'assets/languages-dark.svg'), renderSvg(segments, meta, 'dark') + '\n')
@@ -234,7 +226,7 @@ const END = '<!-- LANG-CHART:END -->'
 if (!readme.includes(START) || !readme.includes(END)) {
   throw new Error(`README.md is missing the ${START} / ${END} markers`)
 }
-const block = `${START}\n${renderReadmeBlock(languages, segments, meta)}\n${END}`
+const block = `${START}\n${renderReadmeBlock(languages, meta)}\n${END}`
 await writeFile(readmePath, readme.replace(new RegExp(`${START}[\\s\\S]*?${END}`), () => block))
 
 console.log(`${repoCount} repos · ${mb(totalBytes)} · ${languages.length} languages`)

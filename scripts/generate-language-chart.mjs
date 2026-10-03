@@ -94,9 +94,8 @@ async function collect() {
   return { languages, totalBytes, repoCount: counted.length + extras.length }
 }
 
-// The bar shows TOP_N coloured segments plus one grey "Other". The legend and
-// the table below name every language individually, so nothing gets hidden by
-// the fold — only its colour is shared.
+// The bar shows TOP_N coloured segments plus one grey "Other".
+// The image alt text lists every language; the legend summarizes the rest.
 function segmentsOf(languages) {
   const top = languages.slice(0, TOP_N)
   const rest = languages.slice(TOP_N)

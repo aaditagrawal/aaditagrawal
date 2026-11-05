@@ -16,6 +16,7 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { FONT, RADIUS, THEMES, textWidth } from './visual-style.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const TOKEN = process.env.GITHUB_TOKEN
@@ -30,9 +31,7 @@ if (args.length > 1 || (args.length === 1 && args[0] !== '--from-stats')) {
 const fromStats = args[0] === '--from-stats'
 if (!fromStats && !TOKEN) throw new Error('GITHUB_TOKEN is required (needs repo scope to see private repos)')
 
-const WIDTH = 880
 const TOP_N = 8 // categorical slots; everything past this folds into "Other"
-const LEGEND_COLS = 3
 const FOOTNOTE_MAX = 7 // languages named in the "Other" footnote before "+N more"
 
 // Validated categorical palette — dataviz skill, slots 1-8 in fixed order.
@@ -43,22 +42,14 @@ const THEME = {
   light: {
     series: ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#4a3aa7', '#e34948'],
     other: '#898781',
-    primary: '#0b0b0b',
-    secondary: '#52514e',
-    muted: '#898781',
-    onFill: '#ffffff',
+    ...THEMES.light,
   },
   dark: {
     series: ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#008300', '#9085e9', '#e66767'],
     other: '#898781',
-    primary: '#ffffff',
-    secondary: '#c3c2b7',
-    muted: '#898781',
-    onFill: '#ffffff',
+    ...THEMES.dark,
   },
 }
-
-const FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'
 
 const xml = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -152,72 +143,86 @@ function segmentsOf(languages) {
 const pct = (n) => `${n.toFixed(2)}%`
 const mb = (b) => `${(b / 1e6).toFixed(2)} MB`
 
-function renderSvg(segments, meta, mode) {
+function wrapText(text, width, size) {
+  const lines = []
+  let line = ''
+  for (const word of text.split(' ')) {
+    const next = line ? line + ' ' + word : word
+    if (line && textWidth(next, size) > width) {
+      lines.push(line)
+      line = word
+    } else line = next
+  }
+  if (line) lines.push(line)
+  return lines
+}
+
+function fitLabel(label, width, size) {
+  if (textWidth(label, size) <= width) return label
+  const letters = [...label]
+  while (letters.length && textWidth(letters.join('') + '…', size) > width) letters.pop()
+  return letters.join('') + '…'
+}
+
+function renderSvg(segments, meta, mode, compact = false) {
   const c = THEME[mode]
   const colorOf = (seg) => (seg.slot < 0 ? c.other : c.series[seg.slot])
-
-  const barY = 52
-  const barH = 22
-  const gap = 2 // surface gap between stacked segments
-  const rows = Math.ceil(segments.length / LEGEND_COLS)
-  const colPitch = WIDTH / LEGEND_COLS
-  const legendBase = 104
-  const rowPitch = 24
-
+  const width = compact ? 360 : 880
+  const cols = compact ? 2 : 3
+  const colGap = compact ? 24 : 40
+  const colWidth = (width - (cols - 1) * colGap) / cols
+  const barY = compact ? 92 : 72
+  const barH = 16
+  const legendBase = barY + barH + 36
+  const rowPitch = 32
+  const visible = meta.totalBytes ? segments : []
+  const rows = Math.ceil(visible.length / cols)
+  const labelSize = compact ? 16 : 15
+  const footSize = compact ? 15 : 13
   const other = segments.find((s) => s.slot < 0)
   const named = other ? other.members.slice(0, FOOTNOTE_MAX) : []
   const hidden = other ? other.members.length - named.length : 0
   const footnote = other
-    ? `Other: ${named.map((l) => `${l.name} ${pct(l.share)}`).join('  ·  ')}` +
-      (hidden > 0 ? `  ·  and ${hidden} more` : '')
+    ? 'Other includes ' + named.map((l) => l.name).join(', ') +
+      (hidden > 0 ? ', and ' + hidden + ' more.' : '.')
     : ''
-  const footY = legendBase + rows * rowPitch + 2
-  const height = footY + 12
-
-  const parts = []
-  parts.push(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" role="img" aria-labelledby="t d">`,
+  const footLines = wrapText(compact && other ? `Other combines ${other.members.length} more languages.` : footnote, width, footSize)
+  const scopeLines = wrapText('Public and private · Forks and archives excluded', width, footSize)
+  const footY = legendBase + Math.max(rows, 1) * rowPitch + 4
+  const height = footY + (footLines.length + scopeLines.length - 1) * 20 + 8
+  const parts = [
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="t d">`,
     `<title id="t">Language mix across ${meta.repoCount} repositories</title>`,
-    `<desc id="d">${xml(meta.languages.map((l) => `${l.name} ${pct(l.share)}`).join(', '))}</desc>`,
-    `<style>text{font-family:${FONT}}</style>`,
-    `<text x="0" y="16" fill="${c.primary}" font-size="15" font-weight="600">Language mix</text>`,
-    `<text x="0" y="36" fill="${c.muted}" font-size="11">${xml(meta.subtitle)}</text>`,
-    `<clipPath id="bar"><rect x="0" y="${barY}" width="${WIDTH}" height="${barH}" rx="4"/></clipPath>`,
-    `<g clip-path="url(#bar)">`,
-  )
-
+    `<desc id="d">${xml(meta.languages.map((l) => l.name + ' ' + pct(l.share)).join(', '))}</desc>`,
+    `<style>text{font-family:${FONT};font-variant-numeric:tabular-nums}</style>`,
+    `<text x="0" y="24" fill="${c.primary}" font-size="20" font-weight="600">${meta.repoCount} repositories</text>`,
+    `<text x="0" y="48" fill="${c.secondary}" font-size="${compact ? 16 : 14}">${mb(meta.totalBytes)} of source · ${meta.languages.length} languages</text>`,
+    `<text x="${compact ? 0 : width - 2}" y="${compact ? 72 : 24}" text-anchor="${compact ? 'start' : 'end'}" fill="${c.secondary}" font-size="14">Updated ${xml(meta.date)}</text>`,
+    `<clipPath id="bar"><rect x="0" y="${barY}" width="${width}" height="${barH}" rx="${RADIUS}"/></clipPath>`,
+    '<g clip-path="url(#bar)">',
+    `<rect x="0" y="${barY}" width="${width}" height="${barH}" fill="${c.surface}"/>`,
+  ]
   let x = 0
   for (const seg of segments) {
-    const w = (seg.share / 100) * WIDTH
-    parts.push(
-      `<rect x="${x.toFixed(2)}" y="${barY}" width="${Math.max(w - gap, 0.5).toFixed(2)}" height="${barH}" fill="${colorOf(seg)}"/>`,
-    )
-    // Direct-label only where the value fits inside the segment with padding;
-    // interior segments too narrow for it lean on the legend instead.
-    const label = pct(seg.share)
-    if (w - gap > label.length * 7 + 20) {
-      parts.push(
-        `<text x="${(x + 10).toFixed(2)}" y="${barY + 15}" fill="${c.onFill}" font-size="11" font-weight="600">${label}</text>`,
-      )
-    }
+    const w = (seg.share / 100) * width
+    if (w > 0) parts.push(`<rect x="${x.toFixed(3)}" y="${barY}" width="${w.toFixed(3)}" height="${barH}" fill="${colorOf(seg)}"/>`)
     x += w
   }
-  parts.push(`</g>`)
-
-  segments.forEach((seg, i) => {
-    const cx = (i % LEGEND_COLS) * colPitch
-    const cy = legendBase + Math.floor(i / LEGEND_COLS) * rowPitch
+  parts.push('</g>')
+  visible.forEach((seg, i) => {
+    const cx = (i % cols) * (colWidth + colGap)
+    const cy = legendBase + Math.floor(i / cols) * rowPitch
+    const label = fitLabel(seg.name, colWidth - 84, labelSize)
     parts.push(
-      `<rect x="${cx}" y="${cy - 9}" width="9" height="9" rx="2" fill="${colorOf(seg)}"/>`,
-      `<text x="${cx + 16}" y="${cy}" fill="${c.secondary}" font-size="12">${xml(seg.name)}</text>`,
-      `<text x="${cx + colPitch - 34}" y="${cy}" fill="${c.primary}" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">${pct(seg.share)}</text>`,
+      `<circle cx="${cx + 4}" cy="${cy - 5}" r="4" fill="${colorOf(seg)}"/>`,
+      `<text x="${cx + 18}" y="${cy}" fill="${c.secondary}" font-size="${labelSize}">${xml(label)}</text>`,
+      `<text x="${cx + colWidth - 2}" y="${cy}" fill="${c.primary}" font-size="${labelSize}" font-weight="600" text-anchor="end">${pct(seg.share)}</text>`,
     )
   })
-
-  if (footnote) {
-    parts.push(`<text x="0" y="${footY}" fill="${c.muted}" font-size="10">${xml(footnote)}</text>`)
-  }
-  parts.push(`</svg>`)
+  if (!meta.totalBytes) parts.push(`<text x="0" y="${legendBase}" fill="${c.secondary}" font-size="14">No source bytes in this snapshot.</text>`)
+  footLines.forEach((line, i) => parts.push(`<text x="0" y="${footY + i * 20}" fill="${c.secondary}" font-size="${footSize}">${xml(line)}</text>`))
+  scopeLines.forEach((line, i) => parts.push(`<text x="0" y="${footY + (footLines.length + i) * 20}" fill="${c.secondary}" font-size="${footSize}">${xml(line)}</text>`))
+  parts.push('</svg>')
   return parts.join('\n')
 }
 
@@ -234,6 +239,8 @@ function renderReadmeBlock(languages, meta) {
   const alt = languages.map((l) => `${l.name} ${pct(l.share)}`).join(', ')
   return [
     '<picture>',
+    `  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="${RAW}/languages-dark-compact.svg?v=${meta.stamp}">`,
+    `  <source media="(max-width: 600px)" srcset="${RAW}/languages-light-compact.svg?v=${meta.stamp}">`,
     `  <source media="(prefers-color-scheme: dark)" srcset="${RAW}/languages-dark.svg?v=${meta.stamp}">`,
     `  <img alt="Language mix across ${meta.repoCount} repositories — ${xml(alt)}" src="${RAW}/languages-light.svg?v=${meta.stamp}">`,
     '</picture>',
@@ -256,13 +263,15 @@ const stats = fromStats
 const { languages, totalBytes, repoCount } = stats
 const segments = segmentsOf(languages)
 const generatedAt = new Date(stats.generatedAt)
-const subtitle =
-  `${mb(totalBytes)} of source across ${repoCount} repositories  ·  public and private, forks and archives excluded  ·  ` +
-  generatedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
-const meta = { repoCount, totalBytes, subtitle, languages, stamp: generatedAt.toISOString().slice(0, 10) }
+const date = generatedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
+const meta = { repoCount, totalBytes, languages, date, stamp: generatedAt.toISOString().slice(0, 10) + '-v2' }
 
-await writeFile(resolve(ROOT, 'assets/languages-light.svg'), renderSvg(segments, meta, 'light') + '\n')
-await writeFile(resolve(ROOT, 'assets/languages-dark.svg'), renderSvg(segments, meta, 'dark') + '\n')
+for (const mode of ['light', 'dark']) {
+  for (const compact of [false, true]) {
+    const filename = 'assets/languages-' + mode + (compact ? '-compact' : '') + '.svg'
+    await writeFile(resolve(ROOT, filename), renderSvg(segments, meta, mode, compact) + '\n')
+  }
+}
 if (!fromStats) {
   await writeFile(statsPath, JSON.stringify({ generatedAt: stats.generatedAt, repoCount, totalBytes, languages }, null, 2) + '\n')
 }

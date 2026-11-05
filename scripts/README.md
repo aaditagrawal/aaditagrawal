@@ -9,13 +9,18 @@ bun test scripts/generators.test.mjs
 ```
 
 The badges are original text-only SVGs generated from `data/badges.json`. They
-retain the previous labels and background colors, with black or white text chosen
-for contrast. They contain no third-party logos, remote fonts or image requests.
+use a shared 28px height, 6px corners, proportional 12px text and neutral surfaces.
+The previous colors appear as small brand markers. Each SVG follows the viewer's
+light or dark theme, with text contrast above 4.5:1 in both modes.
+They contain no third-party logos, remote fonts or image requests.
 To add a badge, add its filename, label and six-digit color to the JSON and link
 the generated file from Markdown.
 
 `--from-stats` renders the saved `data/language-stats.json` without a token or
-network access. It preserves the snapshot timestamp, statistics and chart themes.
+network access. It preserves the snapshot timestamp and statistics, and generates
+light/dark charts in desktop and compact layouts. The README selects the two-column compact
+legend below 600px. Long-tail language notes wrap instead of shrinking to fit.
+Typography, corner radii and theme colors come from `scripts/visual-style.mjs`.
 It does not refresh repository counts or language totals.
 
 For fresh account-wide statistics, set `GITHUB_TOKEN` in the environment and run:
@@ -42,9 +47,10 @@ These opt-in benchmarks compare against committed source at `b40edbd` and print
 JSON with repeated alternating samples and distributions. `SAMPLES` overrides
 the sample count. Run them sequentially on an otherwise idle machine.
 
-The chart benchmark uses identical mocked API responses and verifies output
-equivalence. It reports CPU time, generator wall time and full process time
-separately. The badge benchmark needs an installed Chrome, selected with
+The chart benchmark uses identical mocked API responses, verifies statistics
+against the baseline, and checks that the current online/offline modes produce
+identical SVGs in all four layouts. It reports CPU time, generator wall time and
+full process time separately. The badge benchmark needs an installed Chrome, selected with
 `BROWSER_BIN`. It caches original Shields SVGs outside the repository as
 benchmark-only fixtures, then measures cached image rendering and DOM layout
 without network requests. Chrome is unnecessary for generating or viewing the

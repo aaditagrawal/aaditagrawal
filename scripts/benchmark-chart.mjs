@@ -75,6 +75,7 @@ try {
       await writeFile(join(dir, 'scripts/generate-language-chart.mjs'), setup +
         'const benchmarkStarted = performance.now(); const benchmarkCpuStarted = process.cpuUsage();\n' + source.replace(/^#![^\n]*\n/, '') +
         '\nconst benchmarkCpu = process.cpuUsage(benchmarkCpuStarted); console.log("BENCHMARK_RESULT=" + JSON.stringify({ work: performance.now() - benchmarkStarted, cpu: (benchmarkCpu.user + benchmarkCpu.system) / 1000 }));\n')
+      if (kind !== 'baseline') await writeFile(join(dir, 'scripts/visual-style.mjs'), await read('scripts/visual-style.mjs'))
       await writeFile(join(dir, 'README.md'), kind === 'baseline' ? baseline('README.md') : await read('README.md'))
       await writeFile(join(dir, 'data/language-stats.json'), JSON.stringify(stats, null, 2) + '\n')
       await writeFile(join(dir, 'data/extra-languages.json'), JSON.stringify({ repos: Object.keys(local).length ? { local: { languages: local } } : {} }))
@@ -99,10 +100,12 @@ try {
   const measurements = []
   for (const scenario of scenarios) {
     for (const kind of ['baseline', 'candidate', 'offline']) run(fixtureDirs[`${scenario.name}-${kind}`], kind === 'offline')
-    // Verify behavior before timing: all modes publish identical charts/data.
-    for (const path of ['assets/languages-light.svg', 'assets/languages-dark.svg', 'data/language-stats.json']) {
-      const expected = await readFile(join(fixtureDirs[`${scenario.name}-baseline`], path), 'utf8')
-      for (const kind of ['candidate', 'offline']) assert.equal(await readFile(join(fixtureDirs[`${scenario.name}-${kind}`], path), 'utf8'), expected, `${scenario.name} ${kind} ${path}`)
+    // Statistics match the baseline; redesigned online/offline SVGs match each other.
+    const saved = await readFile(join(fixtureDirs[`${scenario.name}-baseline`], 'data/language-stats.json'), 'utf8')
+    for (const kind of ['candidate', 'offline']) assert.equal(await readFile(join(fixtureDirs[`${scenario.name}-${kind}`], 'data/language-stats.json'), 'utf8'), saved)
+    for (const path of ['assets/languages-light.svg', 'assets/languages-dark.svg', 'assets/languages-light-compact.svg', 'assets/languages-dark-compact.svg']) {
+      const expected = await readFile(join(fixtureDirs[`${scenario.name}-candidate`], path), 'utf8')
+      assert.equal(await readFile(join(fixtureDirs[`${scenario.name}-offline`], path), 'utf8'), expected, `${scenario.name} offline ${path}`)
     }
     const collected = Object.fromEntries(['baseline', 'candidate', 'offline'].map((kind) => [kind, { cli: [], work: [], cpu: [] }]))
     for (let i = -warmups; i < samples; i++) {

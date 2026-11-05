@@ -5,16 +5,19 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { renderBadge } from './badge.mjs'
+import { THEMES } from './visual-style.mjs'
 
 const root = new URL('../', import.meta.url)
 const read = (path) => readFile(new URL(path, root), 'utf8')
-const outputs = ['README.md', 'assets/languages-light.svg', 'assets/languages-dark.svg', 'data/language-stats.json']
+const outputs = ['README.md', 'assets/languages-light.svg', 'assets/languages-dark.svg', 'data/language-stats.json',
+  'assets/languages-light-compact.svg', 'assets/languages-dark-compact.svg']
 
 async function fixture(run, setup = '', change = async () => {}) {
   const dir = await mkdtemp(join(tmpdir(), 'profile-generators-'))
   try {
     for (const path of ['scripts', 'data', 'assets']) await mkdir(join(dir, path))
     for (const path of [...outputs, 'data/extra-languages.json']) await writeFile(join(dir, path), await read(path))
+    await writeFile(join(dir, 'scripts/visual-style.mjs'), await read('scripts/visual-style.mjs'))
     const source = (await read('scripts/generate-language-chart.mjs')).replace(/^#![^\n]*\n/, '')
     await writeFile(join(dir, 'scripts/generate-language-chart.mjs'), `${setup}\n${source}`)
     await change(dir)
@@ -152,11 +155,8 @@ test('all local badges match the generator, keep accessible titles, and need no 
     assert.equal(svg, renderBadge(label, color), id)
     assert.match(svg, /role="img" aria-labelledby="title"/)
     assert.ok(!/(?:href=|<script|<image|@import|url\()/i.test(svg), id)
-    const rgb = color.match(/../g).map((part) => parseInt(part, 16) / 255)
-    const linear = rgb.map((value) => value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4)
-    const luminance = linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722
-    const contrast = svg.includes('fill="#000000" font-family') ? (luminance + 0.05) / 0.05 : 1.05 / (luminance + 0.05)
-    assert.ok(contrast >= 4.5, `${id}: ${contrast}`)
+    assert.ok(svg.includes(`fill="#${color}"`), id)
+    assert.ok(!svg.includes('textLength='), `${id}: natural glyph proportions`)
   }
 })
 
@@ -165,4 +165,34 @@ test('badge renderer escapes markup and rejects unsafe label/color inputs', () =
   assert.match(svg, /A&quot;&lt;&amp;&gt;/)
   for (const label of ['', ' ', '\u0000', null]) assert.throws(() => renderBadge(label, 'FFFFFF'))
   for (const color of ['', '#FFFFFF', 'red', '" onload="alert(1)', null]) assert.throws(() => renderBadge('A', color))
+})
+
+test('shared text meets 4.5:1 contrast on both image and README surfaces', () => {
+  const luminance = (hex) => {
+    const linear = hex.slice(1).match(/../g).map((part) => {
+      const v = parseInt(part, 16) / 255
+      return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4
+    })
+    return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722
+  }
+  for (const [mode, theme] of Object.entries(THEMES)) {
+    for (const ink of [theme.primary, theme.secondary]) {
+      for (const background of [theme.surface, mode === 'light' ? '#ffffff' : '#0d1117']) {
+        const pair = [luminance(ink), luminance(background)].sort((a, b) => b - a)
+        assert.ok((pair[0] + .05) / (pair[1] + .05) >= 4.5, mode + ': ' + ink + ' on ' + background)
+      }
+    }
+  }
+})
+
+test('compact chart sources precede the desktop theme source and describe every language', async () => {
+  const readme = await read('README.md')
+  assert.ok(readme.indexOf('languages-dark-compact.svg') < readme.indexOf('languages-light-compact.svg'))
+  assert.ok(readme.indexOf('languages-light-compact.svg') < readme.indexOf('languages-dark.svg'))
+  const stats = JSON.parse(await read('data/language-stats.json'))
+  for (const mode of ['light', 'dark']) {
+    const svg = await read('assets/languages-' + mode + '-compact.svg')
+    const desc = svg.match(/<desc id="d">(.*?)<\/desc>/)[1]
+    for (const language of stats.languages) assert.ok(desc.includes(language.name), language.name)
+  }
 })

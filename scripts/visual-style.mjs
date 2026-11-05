@@ -17,6 +17,7 @@ const ADVANCES = [
   6.68, 6.68, 4, 6, 3.34, 6.68, 6, 8.67, 6, 6, 6, 4.01, 3.12, 4.01, 7.01,
 ]
 export function textWidth(text, size = 12) {
-  return Math.ceil([...text].reduce((sum, letter) =>
-    sum + (ADVANCES[letter.codePointAt(0) - 32] ?? 12) + 0.2, 0) * size / 12)
+  let width = 0
+  for (const letter of text) width = width + (ADVANCES[letter.codePointAt(0) - 32] ?? 12) + 0.2
+  return Math.ceil(width * size / 12)
 }

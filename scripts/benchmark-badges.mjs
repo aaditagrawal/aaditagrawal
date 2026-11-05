@@ -106,10 +106,14 @@ try {
     '--disable-extensions', '--disable-background-networking', '--remote-debugging-port=0',
     `--user-data-dir=${join(fixture, 'chrome')}`, '--no-first-run', '--no-default-browser-check',
     `file://${file}`], { stdio: 'ignore' })
+  let launchError
+  chrome.once('error', error => { launchError = error })
   let result, browserWallMs
   try {
     let port
     for (let attempt = 0; attempt < 300; attempt++) {
+      if (launchError) throw launchError
+      assert.ok(chrome.exitCode === null && chrome.signalCode === null, 'Chrome exited before opening its endpoint')
       try { port = (await readFile(join(fixture, 'chrome/DevToolsActivePort'), 'utf8')).split('\n')[0]; break } catch (error) {
         if (error.code !== 'ENOENT') throw error
         await new Promise(resolve => setTimeout(resolve, 100))
@@ -141,16 +145,19 @@ try {
     result = response.result.result.value
     browserWallMs = performance.now() - start
   } finally {
-    chrome.kill()
-    await new Promise(resolve => chrome.once('exit', resolve))
+    if (!launchError && chrome.exitCode === null && chrome.signalCode === null) {
+      chrome.kill()
+      await new Promise(resolve => chrome.once('exit', resolve))
+    }
   }
   const summary = (values) => {
     const sorted = [...values].sort((a, b) => a - b)
     return { median: sorted[Math.floor(sorted.length / 2)], p25: sorted[Math.floor(sorted.length * .25)],
       p75: sorted[Math.floor(sorted.length * .75)], p95: sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * .95))] }
   }
-  console.log(JSON.stringify({ baselineRef, runtime: process.version, browser: execFileSync(browser, ['--version'], {encoding:'utf8'}).trim(),
+  console.log(JSON.stringify({ baselineRef, runtime: process.version, bun: process.versions.bun ?? null, browser: execFileSync(browser, ['--version'], {encoding:'utf8'}).trim(),
     platform: `${platform()} ${arch()}`, cpu: cpus()[0].model, samples, warmups: 4, browserWallMs,
+    baselineFixtureSha256: createHash('sha256').update(Buffer.concat(baseline)).digest('hex'),
     method: 'Same browser, predecoded SVG images, alternating order, DOM creation/layout plus canvas draw/readback per sample. No network in timed render. Small batches amortize clock resolution. Decode/startup/network are separate, not parity claims.',
     payloadBytes: {baseline: baseline.reduce((sum, buffer) => sum + buffer.length, 0), candidate: candidate.reduce((sum, buffer) => sum + buffer.length, 0)},
     gzipBytes: {baseline: baseline.reduce((sum, buffer) => sum + gzipSync(buffer).length, 0), candidate: candidate.reduce((sum, buffer) => sum + gzipSync(buffer).length, 0)},

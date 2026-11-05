@@ -116,7 +116,7 @@ try {
     measurements.push({ scenario: scenario.name, repo_count: scenario.repoCount, language_count: scenario.languages.length,
       results: Object.fromEntries(Object.entries(collected).map(([kind, metrics]) => [kind, { cli: summary(metrics.cli), work: summary(metrics.work), cpu: summary(metrics.cpu) }])) })
   }
-  console.log(JSON.stringify({ baseline: BASE, runtime: process.version, executable: process.execPath,
+  console.log(JSON.stringify({ baseline: BASE, runtime: process.version, bun: process.versions.bun ?? null, executable: process.execPath,
     os: `${platform()} ${release()}`, cpu: cpus()[0]?.model, warmups, samples,
     units: 'milliseconds', method: 'Alternating fresh CLI processes with identical local mocked API data; work includes generation, filesystem IO and normal stdout, excluding fixture setup and runtime imports/startup. CPU is process user+system time during work. No network latency. Offline reads the same saved totals and forbids fetch. Two filesystem warmups per mode; each sample has a fresh runtime.',
     empty_process_startup: summary(startup), measurements }, null, 2))

@@ -30,3 +30,23 @@ private repositories to include them. Only aggregate language statistics are
 published. GitHub still hosts the profile and its chart images.
 
 Both generators also run with Node.js 18 or newer in place of `bun`.
+
+## Performance checks
+
+```sh
+bun scripts/benchmark-chart.mjs
+bun scripts/benchmark-badges.mjs
+```
+
+These opt-in benchmarks compare against committed source at `b40edbd` and print
+JSON with repeated alternating samples and distributions. `SAMPLES` overrides
+the sample count. Run them sequentially on an otherwise idle machine.
+
+The chart benchmark uses identical mocked API responses and verifies output
+equivalence. It reports CPU time, generator wall time and full process time
+separately. The badge benchmark needs an installed Chrome, selected with
+`BROWSER_BIN`. It caches original Shields SVGs outside the repository as
+benchmark-only fixtures, then measures cached image rendering and DOM layout
+without network requests. Chrome is unnecessary for generating or viewing the
+profile assets. Network acquisition and browser startup are separate from the
+render samples.

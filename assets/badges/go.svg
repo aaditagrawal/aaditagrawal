@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" role="img" aria-labelledby="title">
+<title id="title">Go</title>
+<path fill="#00ADD8" d="M0 0h30v20H0z"/>
+<text x="8" y="14" fill="#000000" font-family="Verdana, Geneva, sans-serif" font-size="11" textLength="14" lengthAdjust="spacingAndGlyphs">Go</text>
+</svg>

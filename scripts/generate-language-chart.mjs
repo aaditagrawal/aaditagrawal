@@ -9,7 +9,9 @@
 //
 // Run by hand whenever the mix is worth refreshing:
 //
-//   GITHUB_TOKEN=$(gh auth token) node scripts/generate-language-chart.mjs
+//   GITHUB_TOKEN=... bun scripts/generate-language-chart.mjs
+// Or render the saved snapshot without credentials or network access:
+//   bun scripts/generate-language-chart.mjs --from-stats
 
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
@@ -17,7 +19,16 @@ import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const TOKEN = process.env.GITHUB_TOKEN
-if (!TOKEN) throw new Error('GITHUB_TOKEN is required (needs repo scope to see private repos)')
+const args = process.argv.slice(2)
+if (args.length === 1 && args[0] === '--help') {
+  console.log('Usage: bun scripts/generate-language-chart.mjs [--from-stats]\nDefault: refresh from GitHub using GITHUB_TOKEN. --from-stats: render data/language-stats.json offline.')
+  process.exit(0)
+}
+if (args.length > 1 || (args.length === 1 && args[0] !== '--from-stats')) {
+  throw new Error('Usage: bun scripts/generate-language-chart.mjs [--from-stats]')
+}
+const fromStats = args[0] === '--from-stats'
+if (!fromStats && !TOKEN) throw new Error('GITHUB_TOKEN is required (needs repo scope to see private repos)')
 
 const WIDTH = 880
 const TOP_N = 8 // categorical slots; everything past this folds into "Other"
@@ -92,6 +103,32 @@ async function collect() {
     .map(([name, bytes]) => ({ name, bytes, share: (bytes / totalBytes) * 100 }))
 
   return { languages, totalBytes, repoCount: counted.length + extras.length }
+}
+
+function validateStats(stats) {
+  const invalid = () => { throw new Error('Invalid language statistics snapshot') }
+  if (!stats || typeof stats !== 'object' || Array.isArray(stats)) invalid()
+  const { generatedAt, repoCount, totalBytes, languages } = stats
+  if (typeof generatedAt !== 'string' || !Number.isFinite(Date.parse(generatedAt)) ||
+      new Date(generatedAt).toISOString() !== generatedAt ||
+      !Number.isSafeInteger(repoCount) || repoCount < 0 ||
+      !Number.isSafeInteger(totalBytes) || totalBytes < 0 || !Array.isArray(languages)) invalid()
+  const names = new Set()
+  let sum = 0
+  let previous = Infinity
+  for (const language of languages) {
+    if (!language || typeof language !== 'object') invalid()
+    const { name, bytes, share } = language
+    if (typeof name !== 'string' || !name.trim() || /[\u0000-\u001f\u007f]/u.test(name) || names.has(name) ||
+        !Number.isSafeInteger(bytes) || bytes < 0 || bytes > previous ||
+        !Number.isFinite(share) || share < 0 || share > 100 ||
+        Math.abs(share - (totalBytes ? bytes / totalBytes * 100 : 0)) > 1e-8) invalid()
+    names.add(name)
+    previous = bytes
+    sum += bytes
+  }
+  if (sum !== totalBytes) invalid()
+  return stats
 }
 
 // The bar shows TOP_N coloured segments plus one grey "Other".
@@ -198,14 +235,27 @@ function renderReadmeBlock(languages, meta) {
   return [
     '<picture>',
     `  <source media="(prefers-color-scheme: dark)" srcset="${RAW}/languages-dark.svg?v=${meta.stamp}">`,
-    `  <img alt="Language mix across ${meta.repoCount} repositories — ${alt}" src="${RAW}/languages-light.svg?v=${meta.stamp}">`,
+    `  <img alt="Language mix across ${meta.repoCount} repositories — ${xml(alt)}" src="${RAW}/languages-light.svg?v=${meta.stamp}">`,
     '</picture>',
   ].join('\n')
 }
 
-const { languages, totalBytes, repoCount } = await collect()
+const readmePath = resolve(ROOT, 'README.md')
+const readme = await readFile(readmePath, 'utf8')
+const START = '<!-- LANG-CHART:START -->'
+const END = '<!-- LANG-CHART:END -->'
+const start = readme.indexOf(START)
+const end = readme.indexOf(END)
+if (start < 0 || end < start || readme.lastIndexOf(START) !== start || readme.lastIndexOf(END) !== end) {
+  throw new Error(`README.md needs one ordered pair of ${START} / ${END} markers`)
+}
+const statsPath = resolve(ROOT, 'data/language-stats.json')
+const stats = fromStats
+  ? validateStats(JSON.parse(await readFile(statsPath, 'utf8')))
+  : { ...await collect(), generatedAt: new Date().toISOString() }
+const { languages, totalBytes, repoCount } = stats
 const segments = segmentsOf(languages)
-const generatedAt = new Date()
+const generatedAt = new Date(stats.generatedAt)
 const subtitle =
   `${mb(totalBytes)} of source across ${repoCount} repositories  ·  public and private, forks and archives excluded  ·  ` +
   generatedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
@@ -213,17 +263,8 @@ const meta = { repoCount, totalBytes, subtitle, languages, stamp: generatedAt.to
 
 await writeFile(resolve(ROOT, 'assets/languages-light.svg'), renderSvg(segments, meta, 'light') + '\n')
 await writeFile(resolve(ROOT, 'assets/languages-dark.svg'), renderSvg(segments, meta, 'dark') + '\n')
-await writeFile(
-  resolve(ROOT, 'data/language-stats.json'),
-  JSON.stringify({ generatedAt: generatedAt.toISOString(), repoCount, totalBytes, languages }, null, 2) + '\n',
-)
-
-const readmePath = resolve(ROOT, 'README.md')
-const readme = await readFile(readmePath, 'utf8')
-const START = '<!-- LANG-CHART:START -->'
-const END = '<!-- LANG-CHART:END -->'
-if (!readme.includes(START) || !readme.includes(END)) {
-  throw new Error(`README.md is missing the ${START} / ${END} markers`)
+if (!fromStats) {
+  await writeFile(statsPath, JSON.stringify({ generatedAt: stats.generatedAt, repoCount, totalBytes, languages }, null, 2) + '\n')
 }
 const block = `${START}\n${renderReadmeBlock(languages, meta)}\n${END}`
 await writeFile(readmePath, readme.replace(new RegExp(`${START}[\\s\\S]*?${END}`), () => block))

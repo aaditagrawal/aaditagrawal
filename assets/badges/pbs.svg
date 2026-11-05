@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="67" height="28" viewBox="0 0 67 28" role="img" aria-labelledby="title">
+<title id="title">PBS</title>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#003366}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#456b90}}</style>
+<rect class="surface" x="0.5" y="0.5" width="66" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M2 2h20v9H2V2Zm2 2v5h16V4H4Zm2 1h2v3H6V5Zm-4 8h20v9H2v-9Zm2 2v5h16v-5H4Zm2 1h2v3H6v-3Z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">PBS</text>
+</svg>

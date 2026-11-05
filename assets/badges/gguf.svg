@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="28" viewBox="0 0 78 28" role="img" aria-labelledby="title">
+<title id="title">GGUF</title>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#4a5568}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#616c7d}}</style>
+<rect class="surface" x="0.5" y="0.5" width="77" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M5 1h10l6 6v16H3V1h2Zm0 2v18h14V9h-6V3H5Zm10 1v3h3l-3-3ZM7 12h10v2H7v-2Zm0 4h8v2H7v-2Z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">GGUF</text>
+</svg>

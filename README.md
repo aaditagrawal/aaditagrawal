@@ -24,11 +24,11 @@ Currently an undergrad CS and Comms student, **Codex Creative** at OpenAI, forme
 
 ---
 
-[![Website](https://img.shields.io/badge/aadit.cc-000000?style=flat-square&logo=safari&logoColor=white)](https://aadit.cc)
-[![Blog](https://img.shields.io/badge/blog.aadit.cc-FF5722?style=flat-square&logo=hashnode&logoColor=white)](https://blog.aadit.cc)
-[![LinkedIn](https://img.shields.io/badge/aadit--agrawal-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/aadit-agrawal)
-[![Email](https://img.shields.io/badge/mail@aaditagrawal.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:contact@aaditagrawal.com)
-[![Forgejo](https://img.shields.io/badge/Self--hosted%20Git-F57600?style=flat-square&logo=forgejo&logoColor=white)](https://git.aadit.cc/aadit)
+[![Website](assets/badges/aadit-cc.svg)](https://aadit.cc)
+[![Blog](assets/badges/blog-aadit-cc.svg)](https://blog.aadit.cc)
+[![LinkedIn](assets/badges/aadit-agrawal.svg)](https://linkedin.com/in/aadit-agrawal)
+[![Email](assets/badges/mail-aaditagrawal-com.svg)](mailto:contact@aaditagrawal.com)
+[![Forgejo](assets/badges/self-hosted-git.svg)](https://git.aadit.cc/aadit)
 
 ---
 
@@ -40,7 +40,9 @@ BTech CCE @ MIT Manipal '27
 
 <!-- LANG-CHART:START -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-dark.svg?v=2026-08-19">
-  <img alt="Language mix across 63 repositories — TypeScript 59.32%, Python 17.76%, Swift 5.40%, Kotlin 5.27%, HTML 3.07%, CSS 2.70%, Astro 2.29%, JavaScript 1.23%, MDX 1.18%, Shell 0.68%, Elixir 0.54%, Java 0.35%, Objective-C++ 0.05%, MATLAB 0.04%, Objective-C 0.04%, NSIS 0.03%, Makefile 0.03%, C 0.02%, Dockerfile 0.02%" src="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-light.svg?v=2026-08-19">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-dark-compact.svg?v=2026-08-19-v2">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-light-compact.svg?v=2026-08-19-v2">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-dark.svg?v=2026-08-19-v2">
+  <img alt="Language mix across 63 repositories — TypeScript 59.32%, Python 17.76%, Swift 5.40%, Kotlin 5.27%, HTML 3.07%, CSS 2.70%, Astro 2.29%, JavaScript 1.23%, MDX 1.18%, Shell 0.68%, Elixir 0.54%, Java 0.35%, Objective-C++ 0.05%, MATLAB 0.04%, Objective-C 0.04%, NSIS 0.03%, Makefile 0.03%, C 0.02%, Dockerfile 0.02%" src="https://raw.githubusercontent.com/aaditagrawal/aaditagrawal/main/assets/languages-light.svg?v=2026-08-19-v2">
 </picture>
 <!-- LANG-CHART:END -->

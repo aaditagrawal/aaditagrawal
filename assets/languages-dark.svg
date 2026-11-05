@@ -1,49 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="190" viewBox="0 0 880 190" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="252" viewBox="0 0 880 252" role="img" aria-labelledby="t d">
 <title id="t">Language mix across 63 repositories</title>
 <desc id="d">TypeScript 59.32%, Python 17.76%, Swift 5.40%, Kotlin 5.27%, HTML 3.07%, CSS 2.70%, Astro 2.29%, JavaScript 1.23%, MDX 1.18%, Shell 0.68%, Elixir 0.54%, Java 0.35%, Objective-C++ 0.05%, MATLAB 0.04%, Objective-C 0.04%, NSIS 0.03%, Makefile 0.03%, C 0.02%, Dockerfile 0.02%</desc>
-<style>text{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif}</style>
-<text x="0" y="16" fill="#ffffff" font-size="15" font-weight="600">Language mix</text>
-<text x="0" y="36" fill="#898781" font-size="11">12.49 MB of source across 63 repositories  ·  public and private, forks and archives excluded  ·  19 Aug 2026</text>
-<clipPath id="bar"><rect x="0" y="52" width="880" height="22" rx="4"/></clipPath>
+<style>text{font-family:Arial, Helvetica, sans-serif;font-variant-numeric:tabular-nums}</style>
+<text x="0" y="24" fill="#e6edf3" font-size="20" font-weight="600">63 repositories</text>
+<text x="0" y="48" fill="#9da7b3" font-size="14">12.49 MB of source · 19 languages</text>
+<text x="878" y="24" text-anchor="end" fill="#9da7b3" font-size="14">Updated 19 Aug 2026</text>
+<clipPath id="bar"><rect x="0" y="72" width="880" height="16" rx="6"/></clipPath>
 <g clip-path="url(#bar)">
-<rect x="0.00" y="52" width="520.02" height="22" fill="#3987e5"/>
-<text x="10.00" y="67" fill="#ffffff" font-size="11" font-weight="600">59.32%</text>
-<rect x="522.02" y="52" width="154.28" height="22" fill="#d95926"/>
-<text x="532.02" y="67" fill="#ffffff" font-size="11" font-weight="600">17.76%</text>
-<rect x="678.30" y="52" width="45.52" height="22" fill="#199e70"/>
-<rect x="725.82" y="52" width="44.34" height="22" fill="#c98500"/>
-<rect x="772.16" y="52" width="25.03" height="22" fill="#d55181"/>
-<rect x="799.19" y="52" width="21.72" height="22" fill="#008300"/>
-<rect x="822.91" y="52" width="18.12" height="22" fill="#9085e9"/>
-<rect x="843.03" y="52" width="8.85" height="22" fill="#e66767"/>
-<rect x="853.88" y="52" width="24.12" height="22" fill="#898781"/>
+<rect x="0" y="72" width="880" height="16" fill="#161b22"/>
+<rect x="0.000" y="72" width="522.020" height="16" fill="#3987e5"/>
+<rect x="522.020" y="72" width="156.279" height="16" fill="#d95926"/>
+<rect x="678.299" y="72" width="47.521" height="16" fill="#199e70"/>
+<rect x="725.821" y="72" width="46.343" height="16" fill="#c98500"/>
+<rect x="772.163" y="72" width="27.027" height="16" fill="#d55181"/>
+<rect x="799.190" y="72" width="23.719" height="16" fill="#008300"/>
+<rect x="822.909" y="72" width="20.121" height="16" fill="#9085e9"/>
+<rect x="843.030" y="72" width="10.846" height="16" fill="#e66767"/>
+<rect x="853.876" y="72" width="26.124" height="16" fill="#898781"/>
 </g>
-<rect x="0" y="95" width="9" height="9" rx="2" fill="#3987e5"/>
-<text x="16" y="104" fill="#c3c2b7" font-size="12">TypeScript</text>
-<text x="259.3333333333333" y="104" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">59.32%</text>
-<rect x="293.3333333333333" y="95" width="9" height="9" rx="2" fill="#d95926"/>
-<text x="309.3333333333333" y="104" fill="#c3c2b7" font-size="12">Python</text>
-<text x="552.6666666666666" y="104" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">17.76%</text>
-<rect x="586.6666666666666" y="95" width="9" height="9" rx="2" fill="#199e70"/>
-<text x="602.6666666666666" y="104" fill="#c3c2b7" font-size="12">Swift</text>
-<text x="846" y="104" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">5.40%</text>
-<rect x="0" y="119" width="9" height="9" rx="2" fill="#c98500"/>
-<text x="16" y="128" fill="#c3c2b7" font-size="12">Kotlin</text>
-<text x="259.3333333333333" y="128" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">5.27%</text>
-<rect x="293.3333333333333" y="119" width="9" height="9" rx="2" fill="#d55181"/>
-<text x="309.3333333333333" y="128" fill="#c3c2b7" font-size="12">HTML</text>
-<text x="552.6666666666666" y="128" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">3.07%</text>
-<rect x="586.6666666666666" y="119" width="9" height="9" rx="2" fill="#008300"/>
-<text x="602.6666666666666" y="128" fill="#c3c2b7" font-size="12">CSS</text>
-<text x="846" y="128" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">2.70%</text>
-<rect x="0" y="143" width="9" height="9" rx="2" fill="#9085e9"/>
-<text x="16" y="152" fill="#c3c2b7" font-size="12">Astro</text>
-<text x="259.3333333333333" y="152" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">2.29%</text>
-<rect x="293.3333333333333" y="143" width="9" height="9" rx="2" fill="#e66767"/>
-<text x="309.3333333333333" y="152" fill="#c3c2b7" font-size="12">JavaScript</text>
-<text x="552.6666666666666" y="152" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">1.23%</text>
-<rect x="586.6666666666666" y="143" width="9" height="9" rx="2" fill="#898781"/>
-<text x="602.6666666666666" y="152" fill="#c3c2b7" font-size="12">Other</text>
-<text x="846" y="152" fill="#ffffff" font-size="12" font-weight="600" text-anchor="end" style="font-variant-numeric:tabular-nums">2.97%</text>
-<text x="0" y="178" fill="#898781" font-size="10">Other: MDX 1.18%  ·  Shell 0.68%  ·  Elixir 0.54%  ·  Java 0.35%  ·  Objective-C++ 0.05%  ·  MATLAB 0.04%  ·  Objective-C 0.04%  ·  and 4 more</text>
+<circle cx="4" cy="119" r="4" fill="#3987e5"/>
+<text x="18" y="124" fill="#9da7b3" font-size="15">TypeScript</text>
+<text x="264.6666666666667" y="124" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">59.32%</text>
+<circle cx="310.6666666666667" cy="119" r="4" fill="#d95926"/>
+<text x="324.6666666666667" y="124" fill="#9da7b3" font-size="15">Python</text>
+<text x="571.3333333333334" y="124" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">17.76%</text>
+<circle cx="617.3333333333334" cy="119" r="4" fill="#199e70"/>
+<text x="631.3333333333334" y="124" fill="#9da7b3" font-size="15">Swift</text>
+<text x="878" y="124" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">5.40%</text>
+<circle cx="4" cy="151" r="4" fill="#c98500"/>
+<text x="18" y="156" fill="#9da7b3" font-size="15">Kotlin</text>
+<text x="264.6666666666667" y="156" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">5.27%</text>
+<circle cx="310.6666666666667" cy="151" r="4" fill="#d55181"/>
+<text x="324.6666666666667" y="156" fill="#9da7b3" font-size="15">HTML</text>
+<text x="571.3333333333334" y="156" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">3.07%</text>
+<circle cx="617.3333333333334" cy="151" r="4" fill="#008300"/>
+<text x="631.3333333333334" y="156" fill="#9da7b3" font-size="15">CSS</text>
+<text x="878" y="156" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">2.70%</text>
+<circle cx="4" cy="183" r="4" fill="#9085e9"/>
+<text x="18" y="188" fill="#9da7b3" font-size="15">Astro</text>
+<text x="264.6666666666667" y="188" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">2.29%</text>
+<circle cx="310.6666666666667" cy="183" r="4" fill="#e66767"/>
+<text x="324.6666666666667" y="188" fill="#9da7b3" font-size="15">JavaScript</text>
+<text x="571.3333333333334" y="188" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">1.23%</text>
+<circle cx="617.3333333333334" cy="183" r="4" fill="#898781"/>
+<text x="631.3333333333334" y="188" fill="#9da7b3" font-size="15">Other</text>
+<text x="878" y="188" fill="#e6edf3" font-size="15" font-weight="600" text-anchor="end">2.97%</text>
+<text x="0" y="224" fill="#9da7b3" font-size="13">Other includes MDX, Shell, Elixir, Java, Objective-C++, MATLAB, Objective-C, and 4 more.</text>
+<text x="0" y="244" fill="#9da7b3" font-size="13">Public and private · Forks and archives excluded</text>
 </svg>

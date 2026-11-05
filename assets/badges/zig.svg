@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="28" viewBox="0 0 60 28" role="img" aria-labelledby="title">
+<title id="title">Zig</title>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#b87f22}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#f7a41d}}</style>
+<rect class="surface" x="0.5" y="0.5" width="59" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="m23.53 1.02-7.686 3.45h-7.06l-2.98 3.452h7.173L.47 22.98l7.681-3.607h7.065v-.002l2.978-3.45-7.148-.001 12.482-14.9zM0 4.47v14.901h1.883l2.98-3.45H3.451v-8h.942l2.824-3.45H0zm22.117 0-2.98 3.608h1.412v7.844h-.942l-2.98 3.45H24V4.47h-1.883z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">Zig</text>
+</svg>

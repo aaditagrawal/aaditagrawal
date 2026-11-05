@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="94" height="28" viewBox="0 0 94 28" role="img" aria-labelledby="title">
+<title id="title">Weaviate</title>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#0b9f84}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#00d1a9}}</style>
+<rect class="surface" x="0.5" y="0.5" width="93" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M12 1C6.5 1 2 2.8 2 5v14c0 2.2 4.5 4 10 4s10-1.8 10-4V5c0-2.2-4.5-4-10-4Zm0 2c5 0 8 1.5 8 2s-3 2-8 2-8-1.5-8-2 3-2 8-2ZM4 8c2 1 5 1 8 1s6 0 8-1v4c-1 1-4 2-8 2s-7-1-8-2V8Zm0 7c2 1 5 1 8 1s6 0 8-1v4c0 .5-3 2-8 2s-8-1.5-8-2v-4Z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">Weaviate</text>
+</svg>

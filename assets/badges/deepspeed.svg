@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="28" viewBox="0 0 108 28" role="img" aria-labelledby="title">
+<title id="title">DeepSpeed</title>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#0078d4}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#0078d4}}</style>
+<rect class="surface" x="0.5" y="0.5" width="107" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M0 0v11.408h11.408V0zm12.594 0v11.408H24V0zM0 12.594V24h11.408V12.594zm12.594 0V24H24V12.594z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">DeepSpeed</text>
+</svg>

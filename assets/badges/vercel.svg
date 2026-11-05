@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="28" viewBox="0 0 78 28" role="img" aria-labelledby="title">
+<title id="title">Vercel</title>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#000000}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#686b6d}}</style>
+<rect class="surface" x="0.5" y="0.5" width="77" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="m12 1.608 12 20.784H0Z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">Vercel</text>
+</svg>

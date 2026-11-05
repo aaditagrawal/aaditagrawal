@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="57" height="28" viewBox="0 0 57 28" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="63" height="28" viewBox="0 0 63 28" role="img" aria-labelledby="title">
 <title id="title">Zsh</title>
-<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.marker{stroke:#d0d7de}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.marker{stroke:#30363d}}</style>
-<rect class="surface" x="0.5" y="0.5" width="56" height="27" rx="6"/>
-<circle class="marker" cx="12" cy="14" r="3.5" fill="#F15A24" stroke-width="0.5"/>
-<text class="label" x="24" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">Zsh</text>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#f15a24}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#f15a24}}</style>
+<rect class="surface" x="0.5" y="0.5" width="62" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M11.415 5.038a.58.58 0 0 0-.543.197L.135 18.021a.58.58 0 0 0 .071.814.58.58 0 0 0 .815-.07L11.757 5.979a.58.58 0 0 0-.07-.815.6.6 0 0 0-.272-.126m-8.113.317a3.133 3.133 0 0 0-3.12 3.12 3.13 3.13 0 0 0 3.12 3.119A3.133 3.133 0 0 0 6.42 8.475a3.13 3.13 0 0 0-3.119-3.119m0 1.806a1.3 1.3 0 0 1 1.314 1.313 1.3 1.3 0 0 1-1.314 1.312A1.3 1.3 0 0 1 1.99 8.475a1.3 1.3 0 0 1 1.312-1.314m5.253 5.253a3.13 3.13 0 0 0-3.119 3.119 3.13 3.13 0 0 0 3.12 3.118 3.133 3.133 0 0 0 3.118-3.12 3.133 3.133 0 0 0-3.119-3.118m0 1.805a1.3 1.3 0 0 1 1.313 1.314c0 .735-.577 1.312-1.312 1.312a1.3 1.3 0 0 1-1.314-1.312 1.3 1.3 0 0 1 1.313-1.314m7.201 3.276a.58.58 0 0 0-.578.578.58.58 0 0 0 .578.578h7.666a.58.58 0 0 0 .579-.578.58.58 0 0 0-.579-.578Z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">Zsh</text>
 </svg>

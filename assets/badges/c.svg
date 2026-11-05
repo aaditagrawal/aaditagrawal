@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="45" height="28" viewBox="0 0 45 28" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="51" height="28" viewBox="0 0 51 28" role="img" aria-labelledby="title">
 <title id="title">C</title>
-<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.marker{stroke:#d0d7de}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.marker{stroke:#30363d}}</style>
-<rect class="surface" x="0.5" y="0.5" width="44" height="27" rx="6"/>
-<circle class="marker" cx="12" cy="14" r="3.5" fill="#A8B9CC" stroke-width="0.5"/>
-<text class="label" x="24" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">C</text>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#808e9d}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#a8b9cc}}</style>
+<rect class="surface" x="0.5" y="0.5" width="50" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M16.5921 9.1962s-.354-3.298-3.627-3.39c-3.2741-.09-4.9552 2.474-4.9552 6.14 0 3.6651 1.858 6.5972 5.0451 6.5972 3.184 0 3.5381-3.665 3.5381-3.665l6.1041.365s.36 3.31-2.196 5.836c-2.552 2.5241-5.6901 2.9371-7.8762 2.9201-2.19-.017-5.2261.034-8.1602-2.97-2.938-3.0101-3.436-5.9302-3.436-8.8002 0-2.8701.556-6.6702 4.047-9.5502C7.444.72 9.849 0 12.254 0c10.0422 0 10.7172 9.2602 10.7172 9.2602z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">C</text>
 </svg>

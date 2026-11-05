@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="69" height="28" viewBox="0 0 69 28" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="75" height="28" viewBox="0 0 75 28" role="img" aria-labelledby="title">
 <title id="title">NATS</title>
-<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.marker{stroke:#d0d7de}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.marker{stroke:#30363d}}</style>
-<rect class="surface" x="0.5" y="0.5" width="68" height="27" rx="6"/>
-<circle class="marker" cx="12" cy="14" r="3.5" fill="#27AAE1" stroke-width="0.5"/>
-<text class="label" x="24" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">NATS</text>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#2797c6}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#27aae1}}</style>
+<rect class="surface" x="0.5" y="0.5" width="74" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M12.004 0H.404v18.807h9.938l1.714 1.602v-.026L15.966 24v-5.193h7.63V0H12.003zm7.578 14.45H15.38L6.898 6.519v7.93H4.116V4.376h4.349l8.344 7.784V4.375h2.773V14.45z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">NATS</text>
 </svg>

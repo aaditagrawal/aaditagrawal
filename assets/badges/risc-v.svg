@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="78" height="28" viewBox="0 0 78 28" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="84" height="28" viewBox="0 0 84 28" role="img" aria-labelledby="title">
 <title id="title">RISC-V</title>
-<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.marker{stroke:#d0d7de}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.marker{stroke:#30363d}}</style>
-<rect class="surface" x="0.5" y="0.5" width="77" height="27" rx="6"/>
-<circle class="marker" cx="12" cy="14" r="3.5" fill="#283272" stroke-width="0.5"/>
-<text class="label" x="24" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">RISC-V</text>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#283272}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#616a99}}</style>
+<rect class="surface" x="0.5" y="0.5" width="83" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M6.94945.05132h16.9479v6.2099l-10.42482 14.7424-.52374.73429-5.7888-6.84154c4.10309-.73955 6.2099-3.89648 6.2099-7.37054 0-3.47539-2.10681-7.0534-6.42044-7.4745zM1.47516 13.42121l8.73912 10.52747H0V3.4188h5.47428c2.94506 0 4.42154 1.9989 4.42154 4.10703 0 2.1068-1.47648 4.20967-4.42154 4.20967H1.47516v1.6857zm14.0693 10.52747H24V12.1566l-7.68505 10.73802-.77048 1.05406z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">RISC-V</text>
 </svg>

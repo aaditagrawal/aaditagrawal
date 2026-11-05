@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="77" height="28" viewBox="0 0 77 28" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="83" height="28" viewBox="0 0 83 28" role="img" aria-labelledby="title">
 <title id="title">Haskell</title>
-<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.marker{stroke:#d0d7de}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.marker{stroke:#30363d}}</style>
-<rect class="surface" x="0.5" y="0.5" width="76" height="27" rx="6"/>
-<circle class="marker" cx="12" cy="14" r="3.5" fill="#5D4F85" stroke-width="0.5"/>
-<text class="label" x="24" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">Haskell</text>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#5d4f85}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#6b5f90}}</style>
+<rect class="surface" x="0.5" y="0.5" width="82" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M0 3.535L5.647 12 0 20.465h4.235L9.883 12 4.235 3.535zm5.647 0L11.294 12l-5.647 8.465h4.235l3.53-5.29 3.53 5.29h4.234L9.883 3.535zm8.941 4.938l1.883 2.822H24V8.473zm2.824 4.232l1.882 2.822H24v-2.822z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">Haskell</text>
 </svg>

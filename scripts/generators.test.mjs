@@ -150,18 +150,19 @@ test('all local badges match the generator, keep accessible titles, and need no 
   }
   assert.deepEqual([...references].sort(), Object.keys(badges).sort())
   assert.deepEqual((await readdir(new URL('assets/badges/', root))).sort(), [...references].map((id) => `${id}.svg`).sort())
+  const logos = JSON.parse(await read('data/badge-logos.json'))
   for (const [id, [label, color]] of Object.entries(badges)) {
     const svg = await read(`assets/badges/${id}.svg`)
-    assert.equal(svg, renderBadge(label, color), id)
+    assert.equal(svg, renderBadge(label, color, logos.icons[logos.badges[id]]), id)
     assert.match(svg, /role="img" aria-labelledby="title"/)
     assert.ok(!/(?:href=|<script|<image|@import|url\()/i.test(svg), id)
-    assert.ok(svg.includes(`fill="#${color}"`), id)
     assert.ok(!svg.includes('textLength='), `${id}: natural glyph proportions`)
   }
 })
 
 test('badge renderer escapes markup and rejects unsafe label/color inputs', () => {
-  const svg = renderBadge('A"<&>', 'FFFFFF')
+  const logo = { path: 'M0 0h24v24H0Z' }
+  const svg = renderBadge('A"<&>', 'FFFFFF', logo)
   assert.match(svg, /A&quot;&lt;&amp;&gt;/)
   for (const label of ['', ' ', '\u0000', null]) assert.throws(() => renderBadge(label, 'FFFFFF'))
   for (const color of ['', '#FFFFFF', 'red', '" onload="alert(1)', null]) assert.throws(() => renderBadge('A', color))
@@ -194,5 +195,51 @@ test('compact chart sources precede the desktop theme source and describe every 
     const svg = await read('assets/languages-' + mode + '-compact.svg')
     const desc = svg.match(/<desc id="d">(.*?)<\/desc>/)[1]
     for (const language of stats.languages) assert.ok(desc.includes(language.name), language.name)
+  }
+})
+
+
+test('every badge has a local logo and every vendored source retains its license', async () => {
+  const badges = JSON.parse(await read('data/badges.json'))
+  const logos = JSON.parse(await read('data/badge-logos.json'))
+  assert.deepEqual(Object.keys(logos.badges).sort(), Object.keys(badges).sort())
+  assert.deepEqual([...new Set(Object.values(logos.badges))].sort(), Object.keys(logos.icons).sort())
+  for (const [id, icon] of Object.entries(logos.icons)) {
+    assert.ok(icon.path, id)
+    if (icon.source === 'original') continue
+    assert.ok(logos.sources[icon.source], id)
+    assert.match(icon.upstream, /^https:\/\/github.com\//)
+  }
+  for (const source of Object.values(logos.sources)) {
+    assert.match(source.revision, /^[a-f0-9]{40}$/)
+    assert.ok((await read(source.licenseFile)).length > 500)
+  }
+})
+
+test('logos retain at least 3:1 contrast against both badge themes', async () => {
+  const level = (hex) => {
+    const [r, g, b] = hex.slice(1).match(/../g).map((s) => {
+      const v = parseInt(s, 16) / 255
+      return v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4
+    })
+    return r * .2126 + g * .7152 + b * .0722
+  }
+  const badges = JSON.parse(await read('data/badges.json'))
+  for (const id of Object.keys(badges)) {
+    const svg = await read('assets/badges/' + id + '.svg')
+    const inks = [...svg.matchAll(/\.logo\{fill:(#[a-f0-9]{6})\}/g)].map((m) => m[1])
+    assert.equal(inks.length, 2, id)
+    for (const [i, theme] of Object.values(THEMES).entries()) {
+      const a = level(inks[i]), b = level(theme.surface)
+      assert.ok((Math.max(a, b) + .05) / (Math.min(a, b) + .05) >= 3, id)
+    }
+  }
+})
+
+test('logo inputs reject markup, external resources and unsafe transforms', () => {
+  for (const logo of [undefined, {}, {path: 'M0 0"/><script/>'}, {path: 'url(https://example.com)'},
+    {path: 'M0 0Z', viewBox: '0 0 24 24" onload="alert(1)'},
+    {path: 'M0 0Z', transform: 'translate(0 0)"/>'}]) {
+    assert.throws(() => renderBadge('Test', '123456', logo), /logo/)
   }
 })

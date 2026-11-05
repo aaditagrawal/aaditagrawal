@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="85" height="28" viewBox="0 0 85 28" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="91" height="28" viewBox="0 0 91 28" role="img" aria-labelledby="title">
 <title id="title">HAProxy</title>
-<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.marker{stroke:#d0d7de}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.marker{stroke:#30363d}}</style>
-<rect class="surface" x="0.5" y="0.5" width="84" height="27" rx="6"/>
-<circle class="marker" cx="12" cy="14" r="3.5" fill="#106DA9" stroke-width="0.5"/>
-<text class="label" x="24" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">HAProxy</text>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#106da9}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#106da9}}</style>
+<rect class="surface" x="0.5" y="0.5" width="90" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M9.75 13.75h-3.5v-3.5h3.5zm4-4h-3.5v-3.5h3.5zm0 8h-3.5v-3.5h3.5zm4-4h-3.5v-3.5h3.5zm-1-8h-2.5v-2.5h2.5zm-7 0h-2.5v-2.5h2.5zm-4 4h-2.5v-2.5h2.5zm0 7h-2.5v-2.5h2.5zm15 0h-2.5v-2.5h2.5zm0-7h-2.5v-2.5h2.5zM3 6.5H1.5V5H3ZM6.5 3H5V1.5h1.5zm4-1.5H9V0h1.5zm-9 9H0V9h1.5Zm19.5-4V5h1.5v1.5ZM17.5 3V1.5H19V3Zm-4-1.5V0H15v1.5zm9 9V9H24v1.5zM9.75 20.75h-2.5v-2.5h2.5zm7 0h-2.5v-2.5h2.5zM22.5 19H21v-1.5h1.5zM19 22.5h-1.5V21H19ZM15 24h-1.5v-1.5H15Zm9-9h-1.5v-1.5H24ZM1.5 19v-1.5H3V19ZM5 22.5V21h1.5v1.5zM9 24v-1.5h1.5V24Zm-9-9v-1.5h1.5V15Z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">HAProxy</text>
 </svg>

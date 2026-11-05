@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="169" height="28" viewBox="0 0 169 28" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="175" height="28" viewBox="0 0 175 28" role="img" aria-labelledby="title">
 <title id="title">mail@aaditagrawal.com</title>
-<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.marker{stroke:#d0d7de}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.marker{stroke:#30363d}}</style>
-<rect class="surface" x="0.5" y="0.5" width="168" height="27" rx="6"/>
-<circle class="marker" cx="12" cy="14" r="3.5" fill="#EA4335" stroke-width="0.5"/>
-<text class="label" x="24" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">mail@aaditagrawal.com</text>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#ea4335}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#ea4335}}</style>
+<rect class="surface" x="0.5" y="0.5" width="174" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">mail@aaditagrawal.com</text>
 </svg>

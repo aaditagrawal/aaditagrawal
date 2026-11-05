@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="82" height="28" viewBox="0 0 82 28" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="28" viewBox="0 0 88 28" role="img" aria-labelledby="title">
 <title id="title">SGLang</title>
-<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.marker{stroke:#d0d7de}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.marker{stroke:#30363d}}</style>
-<rect class="surface" x="0.5" y="0.5" width="81" height="27" rx="6"/>
-<circle class="marker" cx="12" cy="14" r="3.5" fill="#6366F1" stroke-width="0.5"/>
-<text class="label" x="24" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">SGLang</text>
+<style>.surface{fill:#f6f8fa;stroke:#d0d7de}.label{fill:#24292f}.logo{fill:#6366f1}@media(prefers-color-scheme:dark){.surface{fill:#161b22;stroke:#30363d}.label{fill:#e6edf3}.logo{fill:#6366f1}}</style>
+<rect class="surface" x="0.5" y="0.5" width="87" height="27" rx="6"/>
+<svg x="8" y="7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="logo" d="M3 2h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9l-6 5v-5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 2v12h2v3l3-3h13V4H3Zm3 4h12v2H6V8Zm0 4h8v2H6v-2Z"/></svg>
+<text class="label" x="30" y="18" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="500">SGLang</text>
 </svg>

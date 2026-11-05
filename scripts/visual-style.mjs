@@ -1,4 +1,4 @@
-// Shared by the badge and language-chart SVGs. No downloaded fonts or artwork.
+// Shared by the badge and language-chart SVGs. No downloaded fonts.
 export const FONT = 'Arial, Helvetica, sans-serif'
 export const RADIUS = 6
 export const THEMES = {

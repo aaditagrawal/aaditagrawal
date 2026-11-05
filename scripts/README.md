@@ -8,13 +8,20 @@ bun scripts/generate-language-chart.mjs --from-stats
 bun test scripts/generators.test.mjs
 ```
 
-The badges are original text-only SVGs generated from `data/badges.json`. They
-use a shared 28px height, 6px corners, proportional 12px text and neutral surfaces.
-The previous colors appear as small brand markers. Each SVG follows the viewer's
-light or dark theme, with text contrast above 4.5:1 in both modes.
-They contain no third-party logos, remote fonts or image requests.
-To add a badge, add its filename, label and six-digit color to the JSON and link
-the generated file from Markdown.
+Badges use local SVG logos and labels from `data/badges.json` and
+`data/badge-logos.json`. They share a 28px height, 6px corners, 14px logo slot,
+natural-width 12px text and neutral surfaces. Brand colors adjust for at least
+3:1 logo contrast in each theme; text contrast stays above 4.5:1.
+
+The catalog contains 160 brand marks and 24 original category symbols for
+entries without a dedicated mark in the catalog. Related components can share
+their parent project's logo. All paths are embedded directly in the generated
+SVGs; viewing or regenerating them needs no image service, font download or
+package installation. Pinned sources and license notices are in
+[the logo credits](../assets/logos/README.md).
+
+To add a badge, add its filename, label and six-digit color to `data/badges.json`,
+map it to an icon in `data/badge-logos.json`, and link the generated SVG from Markdown.
 
 `--from-stats` renders the saved `data/language-stats.json` without a token or
 network access. It preserves the snapshot timestamp and statistics, and generates

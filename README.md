@@ -10,11 +10,20 @@ Currently an undergrad CS and Comms student, **Codex Creative** at OpenAI, forme
 |---------|-------------|
 | [**The TIK Menu**](https://fc2.coolstuff.work) | Zero-cost menu platform · 5,000+ DAU · 150K+ monthly requests · [API](https://tikm.coolstuff.work/docs/reference) |
 | [**Typsmthng**](https://typst.coolstuff.work) | Web-focused Typst editor with live preview and WASM renderer |
+| [**dgit**](https://github.com/aaditagrawal/dgit) | Download public Git repositories and subfolders as archives in the browser |
+| [**Repo Thumb**](https://github.com/aaditagrawal/repo-thumb) | GitHub repository cover generator with editable gradients and PNG export |
+| [**Android Mirroring**](https://github.com/aaditagrawal/Android-Mirroring) | Native macOS Android mirroring with wireless ADB, Metal rendering, and CLI/MCP control |
+| [**ophoner**](https://github.com/aaditagrawal/ophoner) | Android AI assistant with multi-provider chat, file tools, and device automation |
+| [**shadowroom**](https://github.com/aaditagrawal/shadowroom) | Native photo culling for Linux and macOS with comparisons, ratings, and XMP export |
+| [**typrst**](https://github.com/aaditagrawal/typrst) | Experimental Rust compiler for a subset of Typst with PDF and SVG output |
+| [**laya-inference-engine**](https://github.com/aaditagrawal/laya-inference-engine) | GPU inference engine with CUDA graphs and Blackwell-optimized kernels |
+| [**mermlint**](https://github.com/aaditagrawal/mermlint) | CLI linter for Mermaid diagrams in Markdown, vaults, and standalone files |
 | [**OR-Free**](https://or.coolstuff.work) | Tracker for free AI models on OpenRouter |
 | [**Contact Cards**](https://contacts.coolstuff.work) | Personal contact card generator with vCard QR codes |
 | [**MIT Manipal Campus Directory**](https://cd.coolstuff.work) | Crowdsourced campus contact resources and data |
 | [**Sindhi Mess Menu**](https://sindhu.coolstuff.work) | Mess menu website with cyclic rotation and extras |
 | [**The TIK API**](https://tikm.coolstuff.work/docs/reference) | Food data API with admin dashboard and XLSX processing |
+| [**India AI Impact Summit Mapper**](https://github.com/aaditagrawal/india-ai-impact-mapper) | Guide to event schedules, guests, venues, and the expo layout |
 | [**MIT Courses Search**](https://courses.coolstuff.work) | Course discovery with interactive network graph (500+ nodes) |
 | [**Electives Allocation Data**](https://electives.coolstuff.work) | Sixth semester elective allocation data for AY 2025-2026 |
 | [**The Mass Contact Maker**](https://vcf.aadit.cc/) | Bulk contact creation from Excel sheets |

@@ -263,7 +263,13 @@ const stats = fromStats
 const { languages, totalBytes, repoCount } = stats
 const segments = segmentsOf(languages)
 const generatedAt = new Date(stats.generatedAt)
-const date = generatedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
+// The chart has a fixed English UTC date, so common-era dates do not need to
+// initialize a locale formatter in every fresh CLI process. Keep era formatting
+// for ISO snapshots with years outside the common era.
+const year = generatedAt.getUTCFullYear()
+const date = year > 0
+  ? `${generatedAt.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'][generatedAt.getUTCMonth()]} ${year}`
+  : generatedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
 const meta = { repoCount, totalBytes, languages, date, stamp: generatedAt.toISOString().slice(0, 10) + '-v2' }
 
 for (const mode of ['light', 'dark']) {

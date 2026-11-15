@@ -243,3 +243,24 @@ test('logo inputs reject markup, external resources and unsafe transforms', () =
     assert.throws(() => renderBadge('Test', '123456', logo), /logo/)
   }
 })
+
+// Preserve the old en-GB UTC date on every month and across year boundaries.
+test('offline chart date matches the original locale formatter', async () => {
+  const dates = Array.from({ length: 12 }, (_, month) => new Date(Date.UTC(2026, month, 7)).toISOString())
+  dates.push('0001-01-01T00:00:00.000Z', '0099-12-31T23:59:59.999Z', '0000-01-01T00:00:00.000Z', '+010000-01-01T00:00:00.000Z')
+  for (const generatedAt of dates) {
+    await fixture(async ({ exec, after }) => {
+      const result = exec(['--from-stats'])
+      assert.equal(result.status, 0, result.stderr)
+      const expected = new Date(generatedAt).toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
+      })
+      const files = await after()
+      for (const i of [1, 2, 4, 5]) assert.ok(files[i].includes(`Updated ${expected}</text>`), expected)
+    }, noNetwork, async (dir) => {
+      const stats = JSON.parse(await read('data/language-stats.json'))
+      stats.generatedAt = generatedAt
+      await writeFile(join(dir, 'data/language-stats.json'), JSON.stringify(stats))
+    })
+  }
+})
